@@ -1,0 +1,36 @@
+<html>
+<head></head>
+
+<body>
+<h1>View All Post</h1>
+
+<h2>Actions</h2>
+<form method="GET" action="/add-new-post">
+1: <button type="submit">Add Post</button>
+</form>
+<p></p>
+<hr>
+
+{{#posts}}
+<p>Post ID: {{id}}</p>
+<p>Title: {{title}}</p>
+<p>Category: {{category}}
+<form action="/filter-category" method="POST">
+  <input type="hidden" name="category" value="{{category}}" />
+Select Category: <button type="submit">Pick Category</button>
+</form>
+<p>Create Date: {{createdAt}}</p>
+<p>Updated Date: {{updatedAt}}</p>
+<p>Body: {{body}}</p>
+<form action="/delete-post" method="POST">
+  <input type="hidden" name="postId" value="{{id}}" />
+Delete Post: <button type="submit">DELETE POST</button>
+</form>
+<hr>
+{{/posts}}
+
+</body>
+
+
+
+</html>
